@@ -1,0 +1,43 @@
+# AppVeyor file
+# http://www.appveyor.com/docs/appveyor-yml
+
+# What combinations to test
+environment:
+  nodejs_version: "7.7.1"
+  access_token:
+    secure: jkwt64TmhxwWc861PGDdv5y1oustxuPCDh8K7+0lyp/PgxQGW3vH3o4QMXAlyznG
+
+# Build version format test
+version: "{build}"
+
+# Fix line endings on Windows
+init:
+  - git config --global core.autocrlf true
+
+install:
+  - ps: Install-Product node $env:nodejs_version x64
+
+  # installing local npm packages
+  - npm install
+
+build: off
+
+test_script:
+  # Output useful info for debugging.
+  - node --version && npm --version
+  - npm run image-comparison-test
+
+notifications:
+  # Email
+  - provider: Email
+    to:
+      - v-sesavv@microsoft.com
+    subject: 'Spline test. Build {{status}}'
+
+on_finish:
+  - 7z a screenshots.zip screenshots
+  - appveyor PushArtifact screenshots.zip
+
+cache:
+  - C:\Users\appveyor\AppData\Roaming\npm-cache -> package.json         # npm cache
+  - node_modules -> package.json                                        # local npm modules

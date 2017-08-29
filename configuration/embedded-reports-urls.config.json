@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Spline",
+    "element": {
+      "frame": "svg.main-svg g > *"
+    },
+    "environments": {
+      "dxt": "https://dxt.powerbi.com/view?r=eyJrIjoiOTlkMDZhOTQtNTRhZi00OGQ1LTk3YTgtMGQzYTZhNWQ5MzljIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjJ9",
+      "edog": "https://powerbi-df.analysis-df.windows.net/view?r=eyJrIjoiNWRlNmYzODUtNTRkYi00ZjJiLWI2OGItNGRjZWNlZGU0YzEzIiwidCI6ImY2ODZkNDI2LThkMTYtNDJkYi04MWI3LWFiNTc4ZTExMGNjZCIsImMiOjEyfQ%3D%3D"
+    }
+  }
+]
+
